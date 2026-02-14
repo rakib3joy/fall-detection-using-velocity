@@ -236,17 +236,13 @@ For detailed results, please refer to our published paper.
 - Residual analysis plots
 - Scatter plots for prediction accuracy
 
+
 ## 📄 Citation
 
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{your_paper_2024,
-  title={Fall Detection Using Velocity Analysis with YOLOv8 and LSTM},
-  author={Your Name and Supervisor Name},
-  journal={Journal Name},
-  year={2024}
-}
+@article
 ```
 
 ## 🎯 Key Features
@@ -310,8 +306,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Author**: Your Name - your.email@institution.edu
-- **Supervisor**: Supervisor Name - supervisor.email@institution.edu
+- **Author**: MD Rakib Hasan - rakibhasanjoy286@gmail.com
+- **Supervisor**: Aniqua Nusrat Zereen - aniqua@bracu.ac.bd
 
 ---
 
