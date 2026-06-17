@@ -1,6 +1,6 @@
-# Fall Detection Using Velocity Analysis
+# Human Fall Detection Through Velocity-Driven Temporal Deep Learning
 
-A comprehensive fall detection system that leverages YOLOv8 pose estimation and LSTM neural networks to analyze human movement patterns and predict fall events based on velocity measurements.
+An IEEE ICCIT 2025 published research project that combines YOLOv8 pose estimation and LSTM-based temporal modeling to detect falls, unstable movements, and normal activities from video data.
 
 ## 🎯 Overview
 
@@ -8,9 +8,39 @@ This project implements an advanced fall detection system using computer vision 
 
 ## 📖 Publication Status
 
-🎉 **This research has been accepted for publication!** The code is made available for academic and research purposes. Please cite our work if you use this code in your research.
+🎉 **This research has been published in ICCIT 2025.** The code is made available for academic and research purposes. Please cite our work if you use this code in your research.
 
-*Paper Status: Accepted for Publication*
+**Paper:**
+Human Fall Detection Through Velocity-Driven Temporal Deep Learning
+
+**Venue:**
+28th International Conference on Computer and Information Technology (ICCIT 2025)
+
+**Status:** Published
+
+**DOI:**
+10.1109/ICCIT68739.2025.11491387
+
+**IEEE Xplore:**
+https://ieeexplore.ieee.org/document/11491387
+
+## 📋 Table of Contents
+
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Manual Installation](#manual-installation-alternative)
+- [Usage](#usage)
+- [Project Structure](#repository-structure)
+- [Data Processing](#data-processing-pipeline)
+- [Models](#models)
+- [Results](#results)
+- [Citation](#citation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Performance Monitoring](#performance-monitoring)
+- [Technical Details](#technical-details)
+- [Acknowledgments](#acknowledgments)
+- [Contact](#contact)
 
 ## 🚀 Features
 
@@ -21,7 +51,22 @@ This project implements an advanced fall detection system using computer vision 
 - **Comprehensive Preprocessing**: Includes data normalization, interpolation, and smoothing
 - **Robust Evaluation**: Multiple metrics and visualization tools for model assessment
 
-## 📋 Quick Start
+### Robust Keypoint Selection
+- Intelligent selection between left/right shoulder keypoints
+- Confidence threshold filtering
+- Fallback mechanisms for missing data
+
+### Advanced Data Processing
+- Height-based coordinate normalization
+- Temporal smoothing for noise reduction
+- Derivative feature calculation (velocity, acceleration)
+
+### Model Reliability
+- Video-level data splitting to prevent leakage
+- Early stopping and regularization
+- Comprehensive evaluation metrics
+
+## ⚡ Quick Start
 
 ### Prerequisites
 - Python 3.8+
@@ -31,8 +76,8 @@ This project implements an advanced fall detection system using computer vision 
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/rakib3joy/fall_detection_using_velocity.git
-cd fall_detection_using_velocity
+git clone https://github.com/rakib3joy/fall-detection-using-velocity.git
+cd fall-detection-using-velocity
 ```
 
 2. **Install dependencies:**
@@ -49,56 +94,23 @@ python fall_detection_preprocessor.py
 - Open `velocity_prediction.ipynb` for velocity prediction model
 - Open `lstm-with-custom-min-max-norm.ipynb` for classification model
 
-## 📋 Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Data Processing](#data-processing)
-- [Models](#models)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
-
-## 🛠 Installation
-
-### Prerequisites
-
-- Python 3.8+
-- CUDA-compatible GPU (recommended)
-
-### Quick Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/fall_detection_using_velocity.git
-cd fall_detection_using_velocity
-```
-
-2. Install all required packages:
-```bash
-pip install -r requirements.txt
-```
-
-3. Download YOLOv8 pose model (automatically downloaded on first run):
-```bash
-# The model will be downloaded automatically when running the preprocessor
-```
-
-### Manual Installation (Alternative)
+## 🛠 Manual Installation (Alternative)
 
 If you prefer to install packages individually:
 
 ```bash
 # Core Machine Learning and Deep Learning
-pip install tensorflow>=2.10.0 keras>=2.10.0
+pip install tensorflow>=2.10.0
 pip install torch>=1.12.0 torchvision>=0.13.0
 
 # Computer Vision and Pose Estimation
 pip install ultralytics>=8.0.0 opencv-python>=4.6.0
 
 # Data Processing and Analysis
-pip install numpy>=1.21.0 pandas>=1.4.0 scikit-learn>=1.1.0
+pip install numpy>=1.21.0 pandas>=1.4.0 scikit-learn>=1.1.0 scipy>=1.8.0
+
+# Signal Processing and Filtering
+pip install filterpy>=1.4.5
 
 # Visualization
 pip install matplotlib>=3.5.0 seaborn>=0.11.0 plotly>=5.0.0
@@ -109,8 +121,8 @@ pip install joblib>=1.1.0 h5py>=3.7.0
 # Jupyter Notebook Support
 pip install jupyter>=1.0.0 ipykernel>=6.0.0 notebook>=6.4.0
 
-# Additional utilities
-pip install tqdm>=4.64.0 pathlib2>=2.3.0
+# Progress bars and utilities
+pip install tqdm>=4.64.0
 ```
 
 ## 🔧 Usage
@@ -119,7 +131,7 @@ pip install tqdm>=4.64.0 pathlib2>=2.3.0
 
 Process video files to extract pose keypoints and velocity data:
 
-```python
+```bash
 python fall_detection_preprocessor.py
 ```
 
@@ -135,7 +147,7 @@ This script will:
 
 Train the LSTM model for fall classification:
 
-```python
+```bash
 # Run the lstm-with-custom-min-max-norm.ipynb notebook
 # This will train a model to classify movements as fall/normal/unstable
 ```
@@ -144,7 +156,7 @@ Train the LSTM model for fall classification:
 
 Train the velocity prediction LSTM model:
 
-```python
+```bash
 # Run the velocity_prediction.ipynb notebook
 # This will train a model to predict vertical velocity from pose sequences
 ```
@@ -152,18 +164,15 @@ Train the velocity prediction LSTM model:
 ## 📁 Repository Structure
 
 ```
-fall_detection_using_velocity/
+fall-detection-using-velocity/
 ├── fall_detection_preprocessor.py    # Main preprocessing pipeline
 ├── lstm-with-custom-min-max-norm.ipynb    # Classification model
 ├── velocity_prediction.ipynb         # Velocity prediction model  
+├── velocity_yolo.py                  # YOLO-based velocity detection
 ├── graph.py                          # Visualization utilities
 ├── requirements.txt                  # Package dependencies
 ├── README.md                         # Documentation
-├── .gitignore                        # Git exclusions
-└── csv_test/                        # Sample data
-    ├── ch1-Amir-Unstable-round-1_velocity.csv
-    ├── video_1_velocity.csv
-    └── graph_output/               # Sample visualizations
+└── .gitignore                        # Git exclusions
 ```
 
 ## 🔄 Data Processing Pipeline
@@ -213,54 +222,51 @@ fall_detection_using_velocity/
 
 ## 📊 Results
 
-The models achieve high accuracy in fall detection:
-- **Classification Model**: Distinguishes between fall/normal/unstable movements
-- **Velocity Prediction**: Accurate velocity estimation from pose sequences
+The proposed two-stage framework combines YOLOv8 pose estimation with LSTM-based velocity prediction and activity classification to achieve robust fall detection in real-world scenarios.
 
-For detailed results, please refer to our published paper.
-
-### Classification Model Performance
-- **Training Accuracy**: Achieved through balanced class weights
-- **Validation Accuracy**: Monitored to prevent overfitting
-- **Test Evaluation**: Confusion matrix and classification report
+### Activity Classification Performance
+- Overall Classification Accuracy: **90%**
+- Macro F1-Score: **0.87**
+- Fall Detection F1-Score: **0.91**
+- Normal Activity F1-Score: **0.95**
+- Unstable Activity F1-Score: **0.76**
 
 ### Velocity Prediction Performance
-- **MAE**: Mean Absolute Error for velocity predictions
-- **R²**: Coefficient of determination
-- **MSE**: Mean Squared Error
-- **MAPE**: Mean Absolute Percentage Error
+- Mean Absolute Error (MAE): **97.65 pixels/second**
+- Equivalent to approximately 3.91 pixels per frame at 25 FPS
+- Error corresponds to approximately 0.26% of frame height
 
-### Visualization Tools
-- Training/validation curves
-- Confusion matrices with percentage normalization
-- Residual analysis plots
-- Scatter plots for prediction accuracy
+### Dataset Statistics
 
+| Category | Count |
+|----------|-------|
+| Total Videos | 3,449 |
+| Fall Samples | 655 |
+| Unstable Samples | 586 |
+| Normal Samples | 2,211 |
+
+- Resolution: 2688 × 1520
+- Frame Rate: 25 FPS
+
+### Key Contributions
+- Two-stage deep learning framework combining velocity prediction and activity classification
+- YOLOv8-based pose estimation with temporal LSTM modeling
+- Non-wearable vision-based fall detection system
+- Published at ICCIT 2025 (IEEE)
 
 ## 📄 Citation
 
 If you use this code in your research, please cite:
 
 ```bibtex
-@article
+@INPROCEEDINGS{11491387,
+  title={Human Fall Detection Through Velocity-Driven Temporal Deep Learning},
+  author={Nohan Ahmed, MD Rakib Hasan, Farhan Haque Shakib, Hosni Rabbani, Rawhatur Rabbi, Sumaiya Tanjil Khan and Aniqua Nusrat Zereen},
+  booktitle={2025 28th International Conference on Computer and Information Technology (ICCIT)},
+  year={2025},
+  doi={10.1109/ICCIT68739.2025.11491387}
+}
 ```
-
-## 🎯 Key Features
-
-### Robust Keypoint Selection
-- Intelligent selection between left/right shoulder keypoints
-- Confidence threshold filtering
-- Fallback mechanisms for missing data
-
-### Advanced Data Processing
-- Height-based coordinate normalization
-- Temporal smoothing for noise reduction
-- Derivative feature calculation (velocity, acceleration)
-
-### Model Reliability
-- Video-level data splitting to prevent leakage
-- Early stopping and regularization
-- Comprehensive evaluation metrics
 
 ## 📈 Performance Monitoring
 
@@ -294,20 +300,20 @@ This is a research publication repository. For questions or collaboration:
 - Open an issue for bug reports
 - Contact authors for research collaboration
 
-## 📄 License
+## ⚖️ License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- **YOLOv8**: Ultralytics for pose estimation
-- **TensorFlow/Keras**: Deep learning framework
-- **Research Institution**: For supporting this research
+- Dr. Aniqua Nusrat Zereen for research supervision and guidance
+- Ultralytics YOLOv8 for pose estimation
+- TensorFlow/Keras for deep learning model development
 
 ## 📞 Contact
 
-- **Author**: MD Rakib Hasan - rakibhasanjoy286@gmail.com
-- **Supervisor**: Aniqua Nusrat Zereen - aniqua@bracu.ac.bd
+- **Author:** MD Rakib Hasan - rakibhasanjoy286@gmail.com
+- **Supervisor:** Aniqua Nusrat Zereen - aniqua@bracu.ac.bd
 
 ---
 
