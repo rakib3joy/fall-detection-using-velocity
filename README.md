@@ -26,21 +26,21 @@ https://ieeexplore.ieee.org/document/11491387
 
 ## 📋 Table of Contents
 
-- [Features](#features)
+- [Features](#-features)
 - [Quick Start](#quick-start)
 - [Manual Installation](#manual-installation-alternative)
 - [Usage](#usage)
 - [Project Structure](#repository-structure)
 - [Data Processing](#data-processing-pipeline)
 - [Models](#-models)
-- [Results](#results)
-- [Citation](#citation)
+- [Results](#-results)
+- [Citation](#-citation)
 - [Contributing](#contributing)
 - [License](#license)
 - [Performance Monitoring](#performance-monitoring)
 - [Technical Details](#technical-details)
 - [Acknowledgments](#acknowledgments)
-- [Contact](#contact)
+- [Contact](#-contact)
 
 ## 🚀 Features
 
