@@ -19,7 +19,7 @@ Human Fall Detection Through Velocity-Driven Temporal Deep Learning
 **Status:** Published
 
 **DOI:**
-10.1109/ICCIT68739.2025.11491387
+[10.1109/ICCIT68739.2025.11491387](https://doi.org/10.1109/ICCIT68739.2025.11491387)
 
 **IEEE Xplore:**
 https://ieeexplore.ieee.org/document/11491387
@@ -32,7 +32,7 @@ https://ieeexplore.ieee.org/document/11491387
 - [Usage](#usage)
 - [Project Structure](#repository-structure)
 - [Data Processing](#data-processing-pipeline)
-- [Models](#models)
+- [Models](#-models)
 - [Results](#results)
 - [Citation](#citation)
 - [Contributing](#contributing)
@@ -313,7 +313,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Author:** MD Rakib Hasan - rakibhasanjoy286@gmail.com
-- **Supervisor:** Aniqua Nusrat Zereen - aniqua@bracu.ac.bd
+- **Research Supervisor:** Dr. Aniqua Nusrat Zereen - aniqua@bracu.ac.bd
 
 ---
 
